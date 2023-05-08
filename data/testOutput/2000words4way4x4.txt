@@ -1,0 +1,4 @@
+test
+base
+set
+lose
