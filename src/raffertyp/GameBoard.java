@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.NavigableSet;
 import java.util.Set;
 
 /**
@@ -25,6 +26,14 @@ public class GameBoard {
      * The grid of cells on this board.
      */
     private Cell[][] grid;
+    /**
+     * Length of the longest word in the dictionary.
+     */
+    private int longestWordLength;
+    /**
+     * How many total cells are in the grid.
+     */
+    private int gridArea;
     
     /**
      * Creates a new GameBoard using a provided collection as the dictionary.
@@ -43,6 +52,11 @@ public class GameBoard {
      */
     public void loadDictionary(final Path path) throws IOException {
         dictionary.addAll(Files.readAllLines(path));
+        dictionary.parallelStream().mapToInt(String::length).max()
+                .ifPresent(max -> longestWordLength = max);
+        if (dictionary instanceof List<String>) {
+            Collections.sort((List<String>) dictionary);
+        }
     }
     
     /**
@@ -61,6 +75,7 @@ public class GameBoard {
                 grid[row][col] = new Cell(row, col, Character.toLowerCase(chars[col]));
             }
         }
+        gridArea = grid.length * grid[0].length;
     }
     
     /**
@@ -76,17 +91,49 @@ public class GameBoard {
     private Set<String> recursiveSearch(final int row, final int col, String partialWord,
                                         Set<Cell> visited, final boolean isFourWay) {
         //Check if oob or already seen, return empty set if we are
-        if (row >= grid.length || row < 0 || col >= grid[row].length || col < 0) {
+        if (partialWord.length() > longestWordLength || row >= grid.length || row < 0 ||
+                col >= grid[row].length || col < 0) {
             return Collections.emptySet();
         }
         final Cell currentCell = grid[row][col];
         if (visited.contains(currentCell)) {
             return Collections.emptySet();
         }
-        //Visit other directions, add sets from those
         final Set<String> words = LinkedHashSet.newLinkedHashSet(dictionary.size());
         partialWord += currentCell.letter;
-        final Set<Cell> tempSet = HashSet.newHashSet(grid.length * grid[row].length);
+        if (partialWord.length() >= 3) {
+            if (dictionary instanceof List<String>) {
+                final int index = Collections.binarySearch((List<String>) dictionary, partialWord);
+                if (index > -1) {
+                    words.add(partialWord);
+                } else {
+                    if (-(index + 1) == dictionary.size() || index == -1 ||
+                            (!((List<String>) dictionary).get(-(index + 1))
+                                    .startsWith(partialWord) &&
+                                    !((List<String>) dictionary).get(-(index + 1) - 1)
+                                            .startsWith(partialWord))) {
+                        return Collections.emptySet();
+                    }
+                }
+            } else {
+                if (dictionary.contains(partialWord)) {
+                    words.add(partialWord);
+                } else if (dictionary instanceof NavigableSet<String>) {
+                    final String lower = ((NavigableSet<String>) dictionary).lower(partialWord);
+                    final String higher = ((NavigableSet<String>) dictionary).higher(partialWord);
+                    if (lower == null || higher == null ||
+                            (!lower.startsWith(partialWord) && !higher.startsWith(partialWord))) {
+                        return Collections.emptySet();
+                    }
+                } else {
+                    final String finalPartialWord = partialWord;
+                    if (dictionary.stream().noneMatch(word -> word.startsWith(finalPartialWord))) {
+                        return Collections.emptySet();
+                    }
+                }
+            }
+        }
+        final Set<Cell> tempSet = HashSet.newHashSet(gridArea);
         tempSet.addAll(visited);
         visited = tempSet;
         visited.add(currentCell);
@@ -105,9 +152,6 @@ public class GameBoard {
                 }
             }
         }
-        if (partialWord.length() >= 3 && dictionary.contains(partialWord)) {
-            words.add(partialWord);
-        }
         return words;
     }
     
@@ -118,19 +162,11 @@ public class GameBoard {
      * @return A set of all the found words
      */
     public Set<String> findWords(final boolean isFourWay) {
-        final Set<String> words = LinkedHashSet.newLinkedHashSet(dictionary.size());
-        final int rowLength = grid[0].length;
-        final int gridArea = grid.length * rowLength;
-        for (int row = 0; row < grid.length; row++) {
-            for (int col = 0; col < grid[row].length; col++) {
-                final String status =
-                        String.valueOf(((double) ((row * rowLength) + col) / gridArea) * 100) + '%';
-                System.out.print(status);
-                words.addAll(
-                        recursiveSearch(row, col, "", HashSet.newHashSet(gridArea), isFourWay));
-                System.out.print("\b".repeat(status.length()));
-            }
-        }
+        final Set<String> words =
+                Collections.synchronizedSet(LinkedHashSet.newLinkedHashSet(dictionary.size()));
+        Arrays.stream(grid).parallel().forEach(startRow -> Arrays.stream(startRow).parallel()
+                .forEach(startCell -> words.addAll(recursiveSearch(startCell.row, startCell.col, "",
+                        HashSet.newHashSet(gridArea), isFourWay))));
         return words;
     }
     

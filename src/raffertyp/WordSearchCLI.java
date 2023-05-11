@@ -7,6 +7,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.TreeSet;
@@ -34,11 +35,12 @@ public class WordSearchCLI {
                 case "LinkedList" -> new LinkedList<>();
                 case "HashSet" -> HashSet.newHashSet(Files.readAllLines(Path.of(args[2])).size());
                 case "TreeSet" -> new TreeSet<>();
+                case "LinkedHashSet" ->
+                        LinkedHashSet.newLinkedHashSet(Files.readAllLines(Path.of(args[2])).size());
                 default -> throw new IllegalArgumentException(UNEXPECTED_VALUE + args[3]);
             });
             gameBoard.loadDictionary(Path.of(args[2]));
             gameBoard.loadGrid(Path.of(args[1]));
-            System.out.println("Starting Search");
             final Instant start = Instant.now();
             final Set<String> words = gameBoard.findWords(switch (args[0]) {
                 case "4way" -> true;
@@ -46,9 +48,11 @@ public class WordSearchCLI {
                 default -> throw new IllegalArgumentException(UNEXPECTED_VALUE + args[0]);
             });
             final Duration runTime = Duration.between(start, Instant.now());
-            System.out.println("Words Found:");
-            for (final String word : words) {
-                System.out.println(word);
+            if (!(args.length >= 5 && args[4].equals("q"))) {
+                System.out.println("Words Found:");
+                for (final String word : words) {
+                    System.out.println(word);
+                }
             }
             System.out.println("Total Words found: " + words.size());
             System.out.println(
