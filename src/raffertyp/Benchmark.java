@@ -49,7 +49,8 @@ public class Benchmark {
             }
         }
         final Duration runTime = Duration.between(start, Instant.now());
-        System.out.printf("TOTAL RUN TIME: %2s:%3s.%4s", runTime.toMinutesPart(),
-                runTime.toSecondsPart(), runTime.toNanosPart());
+        System.out.println(
+                "TOTAL RUN TIME: " + runTime.toMinutesPart() + ':' + runTime.toSecondsPart() + '.' +
+                        runTime.toNanosPart());
     }
 }

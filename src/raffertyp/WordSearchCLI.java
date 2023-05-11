@@ -53,8 +53,8 @@ public class WordSearchCLI {
                 for (final String word : words) {
                     System.out.println(word);
                 }
+                System.out.println("Total Words found: " + words.size());
             }
-            System.out.println("Total Words found: " + words.size());
             System.out.println(
                     "Run Time: " + runTime.toSeconds() + '.' + runTime.toNanosPart() + " seconds");
         } catch (final IOException e) {
