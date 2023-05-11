@@ -37,12 +37,26 @@ public class LabExerciseTest {
             throws IOException, ReflectiveOperationException {
         final GameBoard gameBoard = new GameBoard(collection);
         gameBoard.loadDictionary(DICT_FILE);
-        final Field dictField = gameBoard.getClass().getDeclaredField("dictionary");
-        dictField.setAccessible(true);
+        final Field dictField = getField(gameBoard, "dictionary");
         Assertions.assertTrue(Files.readAllLines(DICT_FILE)
                         .containsAll((Collection<String>) dictField.get(gameBoard)),
                 "Dictionary missing words.");
         System.out.println("Dictionary Loaded: " + collection);
+    }
+    
+    /**
+     * Unlocks and returns a field from a GameBoard.
+     *
+     * @param gameBoard the GameBoard to get the field from.
+     * @param fieldName the name of the field to get.
+     * @return the field
+     * @throws NoSuchFieldException if the field was not found
+     */
+    private static Field getField(GameBoard gameBoard, String fieldName)
+            throws NoSuchFieldException {
+        final Field dictField = gameBoard.getClass().getDeclaredField(fieldName);
+        dictField.setAccessible(true);
+        return dictField;
     }
     
     /**
@@ -74,7 +88,7 @@ public class LabExerciseTest {
      * @throws ReflectiveOperationException if there was a problem with reflection
      */
     @Test
-    void loadDictionary() throws Exception {
+    void loadDictionary() throws IOException, ReflectiveOperationException {
         doLoadDictionary(new HashSet<>());
         doLoadDictionary(new ArrayList<>());
         doLoadDictionary(new LinkedList<>());
@@ -102,10 +116,9 @@ public class LabExerciseTest {
      * @throws ReflectiveOperationException if there was a problem with reflection
      */
     @Test
-    void cellMethods() throws Exception {
+    void cellMethods() throws IOException, ReflectiveOperationException {
         final GameBoard gameBoard = doLoadGrid(Path.of("data/grid6x6.txt"));
-        final Field gridField = gameBoard.getClass().getDeclaredField("grid");
-        gridField.setAccessible(true);
+        final Field gridField = getField(gameBoard, "grid");
         final GameBoard.Cell[][] grid = (GameBoard.Cell[][]) gridField.get(gameBoard);
         for (final GameBoard.Cell[] row : grid) {
             for (final GameBoard.Cell cell : row) {
@@ -115,12 +128,12 @@ public class LabExerciseTest {
         }
         
         final GameBoard dupeBoard = doLoadGrid(Path.of("data/grid6x6.txt"));
-        final Field dupeGridField = dupeBoard.getClass().getDeclaredField("grid");
-        dupeGridField.setAccessible(true);
+        final Field dupeGridField = getField(dupeBoard, "grid");
         final GameBoard.Cell[][] dupeGrid = (GameBoard.Cell[][]) dupeGridField.get(gameBoard);
         for (int row = 0; row < grid.length; row++) {
             for (int col = 0; col < grid[row].length; col++) {
-                Assertions.assertEquals(grid[row][col], dupeGrid[row][col], "Equal cells not equal");
+                Assertions.assertEquals(grid[row][col], dupeGrid[row][col],
+                        "Equal cells not equal");
             }
         }
     }
