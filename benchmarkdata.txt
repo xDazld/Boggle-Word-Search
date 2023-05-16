@@ -1,0 +1,451 @@
+4way data/grid2x2.txt data/2000words.txt HashSet
+Run Time: 0.96512362 seconds
+
+4way data/grid2x2.txt data/2000words.txt TreeSet
+Run Time: 0.1596795 seconds
+
+4way data/grid2x2.txt data/2000words.txt ArrayList
+Run Time: 0.781538 seconds
+
+4way data/grid2x2.txt data/2000words.txt LinkedList
+Run Time: 0.3437997 seconds
+
+4way data/grid2x2.txt data/2000words.txt LinkedHashSet
+Run Time: 0.2174981 seconds
+
+4way data/grid2x2.txt data/words.txt HashSet
+Run Time: 0.192125020 seconds
+
+4way data/grid2x2.txt data/words.txt TreeSet
+Run Time: 0.2632309 seconds
+
+4way data/grid2x2.txt data/words.txt ArrayList
+Run Time: 0.1674060 seconds
+
+4way data/grid2x2.txt data/words.txt LinkedList
+Run Time: 0.101323351 seconds
+
+4way data/grid2x2.txt data/words.txt LinkedHashSet
+Run Time: 0.125148632 seconds
+
+4way data/grid2x2.txt data/scowl.txt HashSet
+Run Time: 0.187920192 seconds
+
+4way data/grid2x2.txt data/scowl.txt TreeSet
+Run Time: 0.12981698 seconds
+
+4way data/grid2x2.txt data/scowl.txt ArrayList
+Run Time: 0.5665061 seconds
+
+4way data/grid2x2.txt data/scowl.txt LinkedList
+Run Time: 0.24205934 seconds
+
+4way data/grid2x2.txt data/scowl.txt LinkedHashSet
+Run Time: 0.26260508 seconds
+
+4way data/grid2x3.txt data/2000words.txt HashSet
+Run Time: 0.444890 seconds
+
+4way data/grid2x3.txt data/2000words.txt TreeSet
+Run Time: 0.228994 seconds
+
+4way data/grid2x3.txt data/2000words.txt ArrayList
+Run Time: 0.716679 seconds
+
+4way data/grid2x3.txt data/2000words.txt LinkedList
+Run Time: 0.258890 seconds
+
+4way data/grid2x3.txt data/2000words.txt LinkedHashSet
+Run Time: 0.242627 seconds
+
+4way data/grid2x3.txt data/words.txt HashSet
+Run Time: 0.57024541 seconds
+
+4way data/grid2x3.txt data/words.txt TreeSet
+Run Time: 0.1103695 seconds
+
+4way data/grid2x3.txt data/words.txt ArrayList
+Run Time: 0.1249755 seconds
+
+4way data/grid2x3.txt data/words.txt LinkedList
+Run Time: 0.5100805 seconds
+
+4way data/grid2x3.txt data/words.txt LinkedHashSet
+Run Time: 0.11476429 seconds
+
+4way data/grid2x3.txt data/scowl.txt HashSet
+Run Time: 0.289302506 seconds
+
+4way data/grid2x3.txt data/scowl.txt TreeSet
+Run Time: 0.24675059 seconds
+
+4way data/grid2x3.txt data/scowl.txt ArrayList
+Run Time: 0.14277497 seconds
+
+4way data/grid2x3.txt data/scowl.txt LinkedList
+Run Time: 0.29053810 seconds
+
+4way data/grid2x3.txt data/scowl.txt LinkedHashSet
+Run Time: 0.72250016 seconds
+
+4way data/grid3x3.txt data/2000words.txt HashSet
+Run Time: 0.1085633 seconds
+
+4way data/grid3x3.txt data/2000words.txt TreeSet
+Run Time: 0.276056 seconds
+
+4way data/grid3x3.txt data/2000words.txt ArrayList
+Run Time: 0.282418 seconds
+
+4way data/grid3x3.txt data/2000words.txt LinkedList
+Run Time: 0.631657 seconds
+
+4way data/grid3x3.txt data/2000words.txt LinkedHashSet
+Run Time: 0.515289 seconds
+
+4way data/grid3x3.txt data/words.txt HashSet
+Run Time: 0.162394999 seconds
+
+4way data/grid3x3.txt data/words.txt TreeSet
+Run Time: 0.12850466 seconds
+
+4way data/grid3x3.txt data/words.txt ArrayList
+Run Time: 0.4501600 seconds
+
+4way data/grid3x3.txt data/words.txt LinkedList
+Run Time: 0.14559347 seconds
+
+4way data/grid3x3.txt data/words.txt LinkedHashSet
+Run Time: 0.30064905 seconds
+
+4way data/grid3x3.txt data/scowl.txt HashSet
+Run Time: 0.650045499 seconds
+
+4way data/grid3x3.txt data/scowl.txt TreeSet
+Run Time: 0.85864915 seconds
+
+4way data/grid3x3.txt data/scowl.txt ArrayList
+Run Time: 0.73977716 seconds
+
+4way data/grid3x3.txt data/scowl.txt LinkedList
+Run Time: 0.186147583 seconds
+
+4way data/grid3x3.txt data/scowl.txt LinkedHashSet
+Run Time: 0.221006926 seconds
+
+4way data/grid4x4.txt data/2000words.txt HashSet
+Run Time: 0.1562843 seconds
+
+4way data/grid4x4.txt data/2000words.txt TreeSet
+Run Time: 0.358180 seconds
+
+4way data/grid4x4.txt data/2000words.txt ArrayList
+Run Time: 0.417771 seconds
+
+4way data/grid4x4.txt data/2000words.txt LinkedList
+Run Time: 0.515810 seconds
+
+4way data/grid4x4.txt data/2000words.txt LinkedHashSet
+Run Time: 0.947496 seconds
+
+4way data/grid4x4.txt data/words.txt HashSet
+Run Time: 0.318694173 seconds
+
+4way data/grid4x4.txt data/words.txt TreeSet
+Run Time: 0.20625031 seconds
+
+4way data/grid4x4.txt data/words.txt ArrayList
+Run Time: 0.30450965 seconds
+
+4way data/grid4x4.txt data/words.txt LinkedList
+Run Time: 0.34380409 seconds
+
+4way data/grid4x4.txt data/words.txt LinkedHashSet
+Run Time: 0.84980252 seconds
+
+4way data/grid4x4.txt data/scowl.txt HashSet
+Run Time: 1.769852229 seconds
+
+4way data/grid4x4.txt data/scowl.txt TreeSet
+Run Time: 0.139780972 seconds
+
+4way data/grid4x4.txt data/scowl.txt ArrayList
+Run Time: 0.111343393 seconds
+
+4way data/grid4x4.txt data/scowl.txt LinkedList
+Run Time: 0.229999156 seconds
+
+4way data/grid4x4.txt data/scowl.txt LinkedHashSet
+Run Time: 0.408268834 seconds
+
+4way data/grid6x6.txt data/2000words.txt HashSet
+Run Time: 0.2700314 seconds
+
+4way data/grid6x6.txt data/2000words.txt TreeSet
+Run Time: 0.427738 seconds
+
+4way data/grid6x6.txt data/2000words.txt ArrayList
+Run Time: 0.397079 seconds
+
+4way data/grid6x6.txt data/2000words.txt LinkedList
+Run Time: 0.909849 seconds
+
+4way data/grid6x6.txt data/2000words.txt LinkedHashSet
+Run Time: 0.1814998 seconds
+
+4way data/grid6x6.txt data/words.txt HashSet
+Run Time: 0.825605042 seconds
+
+4way data/grid6x6.txt data/words.txt TreeSet
+Run Time: 0.66381053 seconds
+
+4way data/grid6x6.txt data/words.txt ArrayList
+Run Time: 0.60316419 seconds
+
+4way data/grid6x6.txt data/words.txt LinkedList
+Run Time: 0.84477790 seconds
+
+4way data/grid6x6.txt data/words.txt LinkedHashSet
+Run Time: 0.190315100 seconds
+
+4way data/grid6x6.txt data/scowl.txt HashSet
+Run Time: 5.715743635 seconds
+
+4way data/grid6x6.txt data/scowl.txt TreeSet
+Run Time: 0.385912494 seconds
+
+4way data/grid6x6.txt data/scowl.txt ArrayList
+Run Time: 0.401532748 seconds
+
+4way data/grid6x6.txt data/scowl.txt LinkedList
+Run Time: 0.815419215 seconds
+
+4way data/grid6x6.txt data/scowl.txt LinkedHashSet
+Run Time: 1.371428877 seconds
+
+8way data/grid2x2.txt data/2000words.txt HashSet
+Run Time: 0.413007 seconds
+
+8way data/grid2x2.txt data/2000words.txt TreeSet
+Run Time: 0.220021 seconds
+
+8way data/grid2x2.txt data/2000words.txt ArrayList
+Run Time: 0.91680 seconds
+
+8way data/grid2x2.txt data/2000words.txt LinkedList
+Run Time: 0.175459 seconds
+
+8way data/grid2x2.txt data/2000words.txt LinkedHashSet
+Run Time: 0.159926 seconds
+
+8way data/grid2x2.txt data/words.txt HashSet
+Run Time: 0.36026094 seconds
+
+8way data/grid2x2.txt data/words.txt TreeSet
+Run Time: 0.1872739 seconds
+
+8way data/grid2x2.txt data/words.txt ArrayList
+Run Time: 0.1583098 seconds
+
+8way data/grid2x2.txt data/words.txt LinkedList
+Run Time: 0.9129704 seconds
+
+8way data/grid2x2.txt data/words.txt LinkedHashSet
+Run Time: 0.14966525 seconds
+
+8way data/grid2x2.txt data/scowl.txt HashSet
+Run Time: 0.185362270 seconds
+
+8way data/grid2x2.txt data/scowl.txt TreeSet
+Run Time: 0.9850971 seconds
+
+8way data/grid2x2.txt data/scowl.txt ArrayList
+Run Time: 0.13212254 seconds
+
+8way data/grid2x2.txt data/scowl.txt LinkedList
+Run Time: 0.48071123 seconds
+
+8way data/grid2x2.txt data/scowl.txt LinkedHashSet
+Run Time: 0.52311212 seconds
+
+8way data/grid2x3.txt data/2000words.txt HashSet
+Run Time: 0.844938 seconds
+
+8way data/grid2x3.txt data/2000words.txt TreeSet
+Run Time: 0.155693 seconds
+
+8way data/grid2x3.txt data/2000words.txt ArrayList
+Run Time: 0.118679 seconds
+
+8way data/grid2x3.txt data/2000words.txt LinkedList
+Run Time: 0.324647 seconds
+
+8way data/grid2x3.txt data/2000words.txt LinkedHashSet
+Run Time: 0.327934 seconds
+
+8way data/grid2x3.txt data/words.txt HashSet
+Run Time: 0.218851089 seconds
+
+8way data/grid2x3.txt data/words.txt TreeSet
+Run Time: 0.4386933 seconds
+
+8way data/grid2x3.txt data/words.txt ArrayList
+Run Time: 0.4140489 seconds
+
+8way data/grid2x3.txt data/words.txt LinkedList
+Run Time: 0.17696417 seconds
+
+8way data/grid2x3.txt data/words.txt LinkedHashSet
+Run Time: 0.29907332 seconds
+
+8way data/grid2x3.txt data/scowl.txt HashSet
+Run Time: 0.968468903 seconds
+
+8way data/grid2x3.txt data/scowl.txt TreeSet
+Run Time: 0.43303384 seconds
+
+8way data/grid2x3.txt data/scowl.txt ArrayList
+Run Time: 0.63069214 seconds
+
+8way data/grid2x3.txt data/scowl.txt LinkedList
+Run Time: 0.106331810 seconds
+
+8way data/grid2x3.txt data/scowl.txt LinkedHashSet
+Run Time: 0.169844136 seconds
+
+8way data/grid3x3.txt data/2000words.txt HashSet
+Run Time: 0.1817180 seconds
+
+8way data/grid3x3.txt data/2000words.txt TreeSet
+Run Time: 0.230672 seconds
+
+8way data/grid3x3.txt data/2000words.txt ArrayList
+Run Time: 0.168260 seconds
+
+8way data/grid3x3.txt data/2000words.txt LinkedList
+Run Time: 0.579447 seconds
+
+8way data/grid3x3.txt data/2000words.txt LinkedHashSet
+Run Time: 0.769803 seconds
+
+8way data/grid3x3.txt data/words.txt HashSet
+Run Time: 0.547560049 seconds
+
+8way data/grid3x3.txt data/words.txt TreeSet
+Run Time: 0.24856461 seconds
+
+8way data/grid3x3.txt data/words.txt ArrayList
+Run Time: 0.40199239 seconds
+
+8way data/grid3x3.txt data/words.txt LinkedList
+Run Time: 0.38200879 seconds
+
+8way data/grid3x3.txt data/words.txt LinkedHashSet
+Run Time: 0.102922078 seconds
+
+8way data/grid3x3.txt data/scowl.txt HashSet
+Run Time: 4.106151356 seconds
+
+8way data/grid3x3.txt data/scowl.txt TreeSet
+Run Time: 0.161517863 seconds
+
+8way data/grid3x3.txt data/scowl.txt ArrayList
+Run Time: 0.177690041 seconds
+
+8way data/grid3x3.txt data/scowl.txt LinkedList
+Run Time: 0.373255576 seconds
+
+8way data/grid3x3.txt data/scowl.txt LinkedHashSet
+Run Time: 0.748020697 seconds
+
+8way data/grid4x4.txt data/2000words.txt HashSet
+Run Time: 0.3609732 seconds
+
+8way data/grid4x4.txt data/2000words.txt TreeSet
+Run Time: 0.309904 seconds
+
+8way data/grid4x4.txt data/2000words.txt ArrayList
+Run Time: 0.285171 seconds
+
+8way data/grid4x4.txt data/2000words.txt LinkedList
+Run Time: 0.976882 seconds
+
+8way data/grid4x4.txt data/2000words.txt LinkedHashSet
+Run Time: 0.1462187 seconds
+
+8way data/grid4x4.txt data/words.txt HashSet
+Run Time: 1.768240141 seconds
+
+8way data/grid4x4.txt data/words.txt TreeSet
+Run Time: 0.93843582 seconds
+
+8way data/grid4x4.txt data/words.txt ArrayList
+Run Time: 0.54275464 seconds
+
+8way data/grid4x4.txt data/words.txt LinkedList
+Run Time: 0.184907769 seconds
+
+8way data/grid4x4.txt data/words.txt LinkedHashSet
+Run Time: 0.406372982 seconds
+
+8way data/grid4x4.txt data/scowl.txt HashSet
+Run Time: 15.550633217 seconds
+
+8way data/grid4x4.txt data/scowl.txt TreeSet
+Run Time: 0.447948515 seconds
+
+8way data/grid4x4.txt data/scowl.txt ArrayList
+Run Time: 0.444418290 seconds
+
+8way data/grid4x4.txt data/scowl.txt LinkedList
+Run Time: 1.382772104 seconds
+
+8way data/grid4x4.txt data/scowl.txt LinkedHashSet
+Run Time: 3.109490237 seconds
+
+8way data/grid6x6.txt data/2000words.txt HashSet
+Run Time: 0.10990805 seconds
+
+8way data/grid6x6.txt data/2000words.txt TreeSet
+Run Time: 0.545307 seconds
+
+8way data/grid6x6.txt data/2000words.txt ArrayList
+Run Time: 0.509511 seconds
+
+8way data/grid6x6.txt data/2000words.txt LinkedList
+Run Time: 0.2783615 seconds
+
+8way data/grid6x6.txt data/2000words.txt LinkedHashSet
+Run Time: 0.4998679 seconds
+
+8way data/grid6x6.txt data/words.txt HashSet
+Run Time: 6.79943794 seconds
+
+8way data/grid6x6.txt data/words.txt TreeSet
+Run Time: 0.273247706 seconds
+
+8way data/grid6x6.txt data/words.txt ArrayList
+Run Time: 0.257075127 seconds
+
+8way data/grid6x6.txt data/words.txt LinkedList
+Run Time: 0.607471348 seconds
+
+8way data/grid6x6.txt data/words.txt LinkedHashSet
+Run Time: 1.937490755 seconds
+
+8way data/grid6x6.txt data/scowl.txt HashSet
+Run Time: 68.329825042 seconds
+
+8way data/grid6x6.txt data/scowl.txt TreeSet
+Run Time: 2.24389249 seconds
+
+8way data/grid6x6.txt data/scowl.txt ArrayList
+Run Time: 1.876302259 seconds
+
+8way data/grid6x6.txt data/scowl.txt LinkedList
+Run Time: 5.915604884 seconds
+
+8way data/grid6x6.txt data/scowl.txt LinkedHashSet
+Run Time: 14.931852127 seconds
+
+TOTAL RUN TIME: 2:37.802717743
