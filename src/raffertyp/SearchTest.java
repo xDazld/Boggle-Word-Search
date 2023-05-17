@@ -1,3 +1,10 @@
+/*
+ * Course: CS2852
+ * Spring 2022-2023
+ * Lab 9 - Word Search
+ * Name: Patrick Rafferty
+ * Created: May 2023
+ */
 package raffertyp;
 
 import org.junit.jupiter.api.Assertions;
