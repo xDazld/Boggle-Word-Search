@@ -42,12 +42,12 @@ public class Benchmark {
      *
      * @param args unused
      */
-    public static void main(final String[] args) {
-        final Instant start = Instant.now();
-        for (final String rules : RULES) {
-            for (final String grid : GRIDS) {
-                for (final String dictionary : DICTIONARIES) {
-                    for (final String collection : COLLECTION_TYPES) {
+    public static void main(String[] args) {
+        Instant start = Instant.now();
+        for (String rules : RULES) {
+            for (String grid : GRIDS) {
+                for (String dictionary : DICTIONARIES) {
+                    for (String collection : COLLECTION_TYPES) {
                         System.out.printf("%1s %2s %3s %4s\n", rules, grid, dictionary, collection);
                         WordSearchCLI.main(new String[] {rules, grid, dictionary, collection, "q"});
                         System.out.println();
@@ -55,7 +55,7 @@ public class Benchmark {
                 }
             }
         }
-        final Duration runTime = Duration.between(start, Instant.now());
+        Duration runTime = Duration.between(start, Instant.now());
         System.out.println(
                 "TOTAL RUN TIME: " + runTime.toMinutesPart() + ':' + runTime.toSecondsPart() + '.' +
                         runTime.toNanosPart());

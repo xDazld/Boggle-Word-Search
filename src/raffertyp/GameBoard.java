@@ -47,7 +47,7 @@ public class GameBoard {
      *
      * @param emptyDictionary the collection to use as the dictionary
      */
-    public GameBoard(final Collection<String> emptyDictionary) {
+    public GameBoard(Collection<String> emptyDictionary) {
         dictionary = emptyDictionary;
     }
     
@@ -57,7 +57,7 @@ public class GameBoard {
      * @param path the path of the file with words
      * @throws IOException of there was a problem reading the dictionary
      */
-    public void loadDictionary(final Path path) throws IOException {
+    public void loadDictionary(Path path) throws IOException {
         dictionary.addAll(Files.readAllLines(path));
         dictionary.parallelStream().mapToInt(String::length).max()
                 .ifPresent(max -> longestWordLength = max);
@@ -72,11 +72,11 @@ public class GameBoard {
      * @param path the path to load the grid from
      * @throws IOException if there was a problem reading the file
      */
-    public void loadGrid(final Path path) throws IOException {
-        final List<String> lines = Files.readAllLines(path);
+    public void loadGrid(Path path) throws IOException {
+        List<String> lines = Files.readAllLines(path);
         grid = new Cell[lines.size()][];
         for (int row = 0; row < lines.size(); row++) {
-            final char[] chars = lines.get(row).toCharArray();
+            char[] chars = lines.get(row).toCharArray();
             grid[row] = new Cell[chars.length];
             for (int col = 0; col < chars.length; col++) {
                 grid[row][col] = new Cell(row, col, Character.toLowerCase(chars[col]));
@@ -95,22 +95,22 @@ public class GameBoard {
      * @param isFourWay   if we are ignoring diagonals or not
      * @return a set of words found in the grid
      */
-    private Set<String> recursiveSearch(final int row, final int col, String partialWord,
-                                        Set<Cell> visited, final boolean isFourWay) {
+    private Set<String> recursiveSearch(int row, int col, String partialWord, Set<Cell> visited,
+                                        boolean isFourWay) {
         //Check if oob or already seen, return empty set if we are
         if (partialWord.length() > longestWordLength || row >= grid.length || row < 0 ||
                 col >= grid[row].length || col < 0) {
             return Collections.emptySet();
         }
-        final Cell currentCell = grid[row][col];
+        Cell currentCell = grid[row][col];
         if (visited.contains(currentCell)) {
             return Collections.emptySet();
         }
-        final Set<String> words = LinkedHashSet.newLinkedHashSet(dictionary.size());
+        Set<String> words = LinkedHashSet.newLinkedHashSet(dictionary.size());
         partialWord += currentCell.letter;
         if (partialWord.length() >= 3) {
             if (dictionary instanceof List<String>) {
-                final int index = Collections.binarySearch((List<String>) dictionary, partialWord);
+                int index = Collections.binarySearch((List<String>) dictionary, partialWord);
                 if (index > -1) {
                     words.add(partialWord);
                 } else {
@@ -126,21 +126,21 @@ public class GameBoard {
                 if (dictionary.contains(partialWord)) {
                     words.add(partialWord);
                 } else if (dictionary instanceof NavigableSet<String>) {
-                    final String lower = ((NavigableSet<String>) dictionary).lower(partialWord);
-                    final String higher = ((NavigableSet<String>) dictionary).higher(partialWord);
+                    String lower = ((NavigableSet<String>) dictionary).lower(partialWord);
+                    String higher = ((NavigableSet<String>) dictionary).higher(partialWord);
                     if (lower == null || higher == null ||
                             (!lower.startsWith(partialWord) && !higher.startsWith(partialWord))) {
                         return Collections.emptySet();
                     }
                 } else {
-                    final String finalPartialWord = partialWord;
+                    String finalPartialWord = partialWord;
                     if (dictionary.stream().noneMatch(word -> word.startsWith(finalPartialWord))) {
                         return Collections.emptySet();
                     }
                 }
             }
         }
-        final Set<Cell> tempSet = HashSet.newHashSet(gridArea);
+        Set<Cell> tempSet = HashSet.newHashSet(gridArea);
         tempSet.addAll(visited);
         visited = tempSet;
         visited.add(currentCell);
@@ -168,8 +168,8 @@ public class GameBoard {
      * @param isFourWay if only cardinal directions should be checked
      * @return A set of all the found words
      */
-    public Set<String> findWords(final boolean isFourWay) {
-        final Set<String> words =
+    public Set<String> findWords(boolean isFourWay) {
+        Set<String> words =
                 Collections.synchronizedSet(LinkedHashSet.newLinkedHashSet(dictionary.size()));
         Arrays.stream(grid).parallel().forEach(startRow -> Arrays.stream(startRow).parallel()
                 .forEach(startCell -> words.addAll(recursiveSearch(startCell.row, startCell.col, "",

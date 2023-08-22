@@ -35,9 +35,9 @@ public class WordSearchCLI {
      *
      * @param args Ruleset, grid file, word list, Collection type
      */
-    public static void main(final String[] args) {
+    public static void main(String[] args) {
         try {
-            final GameBoard gameBoard = new GameBoard(switch (args[3]) {
+            GameBoard gameBoard = new GameBoard(switch (args[3]) {
                 case "ArrayList" -> new ArrayList<>(Files.readAllLines(Path.of(args[2])).size());
                 case "LinkedList" -> new LinkedList<>();
                 case "HashSet" -> HashSet.newHashSet(Files.readAllLines(Path.of(args[2])).size());
@@ -48,25 +48,26 @@ public class WordSearchCLI {
             });
             gameBoard.loadDictionary(Path.of(args[2]));
             gameBoard.loadGrid(Path.of(args[1]));
-            final Instant start = Instant.now();
-            final Set<String> words = gameBoard.findWords(switch (args[0]) {
+            boolean isFourWay = switch (args[0]) {
                 case "4way" -> true;
                 case "8way" -> false;
                 default -> throw new IllegalArgumentException(UNEXPECTED_VALUE + args[0]);
-            });
-            final Duration runTime = Duration.between(start, Instant.now());
+            };
+            Instant start = Instant.now();
+            Set<String> words = gameBoard.findWords(isFourWay);
+            Duration runTime = Duration.between(start, Instant.now());
             if (!(args.length >= 5 && args[4].equals("q"))) {
                 System.out.println("Words Found:");
-                for (final String word : words) {
+                for (String word : words) {
                     System.out.println(word);
                 }
                 System.out.println("Total Words found: " + words.size());
             }
             System.out.println(
                     "Run Time: " + runTime.toSeconds() + '.' + runTime.toNanosPart() + " seconds");
-        } catch (final IOException e) {
+        } catch (IOException e) {
             System.err.println("Error reading file: " + e);
-        } catch (final IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
         }
     }
